@@ -16,7 +16,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return BlocProvider(
       create: (_) => injector.get<HomeCubit>()
         ..getPosts(), //TODO Why we need to use underscore in params and ..
-        
+      child: Builder(
+        builder: (context) {
+          return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+            return Container();
+          });
+        },
+      ),
     );
   }
 }
