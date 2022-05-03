@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:simple_reddit/injector.dart';
 import 'package:simple_reddit/presentation/main/home/home_screen.dart';
 
 void main() {
+  initializeDependencies();
   runApp(const MyApp());
 }
 
