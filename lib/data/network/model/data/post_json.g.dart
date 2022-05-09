@@ -8,7 +8,7 @@ part of 'post_json.dart';
 
 PostJson _$PostJsonFromJson(Map<String, dynamic> json) => PostJson(
       json['author_fullname'] as String,
-      json['id'] as String,
+      json['id'] as int,
       json['title'] as String,
       json['created_utc'] as int,
       json['subreddit'] as String,

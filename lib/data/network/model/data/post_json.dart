@@ -4,7 +4,7 @@ part 'post_json.g.dart';
 
 @JsonSerializable()
 class PostJson {
-  String id;
+  int id;
   String title;
   String subreddit;
   String author_fullname;

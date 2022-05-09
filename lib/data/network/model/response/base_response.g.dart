@@ -12,7 +12,6 @@ ListResponse<T> _$ListResponseFromJson<T>(
 ) =>
     ListResponse<T>(
       (json['data'] as List<dynamic>).map(fromJsonT).toList(),
-      json['meta'] as Map<String, dynamic>,
     );
 
 Map<String, dynamic> _$ListResponseToJson<T>(
@@ -21,5 +20,4 @@ Map<String, dynamic> _$ListResponseToJson<T>(
 ) =>
     <String, dynamic>{
       'data': instance.data.map(toJsonT).toList(),
-      'meta': instance.meta,
     };

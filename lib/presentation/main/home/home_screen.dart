@@ -19,7 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Builder(
         builder: (context) {
           return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
-            return Container();
+            return Scaffold(
+              backgroundColor: Colors.white,
+              
+            );
           });
         },
       ),
