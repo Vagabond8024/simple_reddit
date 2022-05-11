@@ -10,10 +10,10 @@ PostJson _$PostJsonFromJson(Map<String, dynamic> json) => PostJson(
       json['author_fullname'] as String,
       json['id'] as String,
       json['title'] as String,
-      json['created_utc'] as int,
+      json['created_utc'],
       json['subreddit'] as String,
-      json['score'] as int,
-      json['num_comments'] as int,
+      json['score'],
+      json['num_comments'],
     );
 
 Map<String, dynamic> _$PostJsonToJson(PostJson instance) => <String, dynamic>{

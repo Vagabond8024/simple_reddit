@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class Post extends Equatable {
-  final int id;
+  final String id;
   final String title;
   final String subreddit;
   final String author_fullname;
-  final int created_utc;
-  final int num_comments;
-  final int score;
+  final dynamic created_utc;
+  final dynamic num_comments;
+  final dynamic score;
 
   Post(
     this.id,

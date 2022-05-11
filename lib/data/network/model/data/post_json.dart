@@ -8,9 +8,9 @@ class PostJson {
   String title;
   String subreddit;
   String author_fullname;
-  int created_utc;
-  int num_comments;
-  int score;
+  dynamic created_utc;
+  dynamic num_comments;
+  dynamic score;
 
   PostJson(
     this.author_fullname,
