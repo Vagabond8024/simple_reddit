@@ -12,7 +12,7 @@ class ListResponse<T> {
       Map<String, dynamic> json, Function(Map<String, dynamic>) create) {
     var data = <T>[];
     json['data']['children'].forEach((v) {
-      data.add(create(v));
+      data.add(create(v['data']));
     });
     // Map<String, dynamic> meta = {'dist': '$json["data"]'};
     return ListResponse(data);

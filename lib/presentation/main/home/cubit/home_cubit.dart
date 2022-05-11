@@ -13,6 +13,8 @@ class HomeCubit extends Cubit<HomeState> {
 
   getPosts() async {
     var postList = await _getPostsUseCase(_applyFilters());
+
+    emit(HomeState(postList.data?.right ?? [], false));
   }
 
   Map<String, String> _applyFilters() {

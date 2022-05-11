@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:simple_reddit/core/utils/utils.dart';
 import 'package:simple_reddit/data/local/app_database.dart';
+import 'package:simple_reddit/data/network/login_interceptor.dart';
 import 'package:simple_reddit/data/repository/post_repository_impl.dart';
 import 'package:simple_reddit/domain/repository/post_repository.dart';
 import 'package:simple_reddit/domain/usecases/get_posts_usecase.dart';
@@ -22,17 +23,18 @@ Future<void> initializeDependencies() async {
 
   Dio injectDio(SharedPreferences sharedPreferences) {
     Dio dio = Dio();
-    // dio.options.receiveTimeout = 100000;
-    // dio.options.sendTimeout = 100000;
-    // dio.options.connectTimeout = 100000;
+    dio.options.receiveTimeout = 100000;
+    dio.options.sendTimeout = 100000;
+    dio.options.connectTimeout = 100000;
 
-    // dio.options.followRedirects = false;
+    dio.options.followRedirects = false;
     // dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
     //   options.headers.addAll({
     //     "accept-language": "en",
     //   });
     //   handler.next(options);
     // }));
+    dio.interceptors.add(LoggingInterceptor());
 
     return dio;
   }

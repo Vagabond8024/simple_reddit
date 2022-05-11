@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_reddit/domain/entities/post.dart';
 import 'package:simple_reddit/injector.dart';
 import 'package:simple_reddit/presentation/main/home/cubit/home_cubit.dart';
 
@@ -11,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -19,12 +21,52 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Builder(
         builder: (context) {
           return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
-            return Scaffold(
-              backgroundColor: Colors.white,
-              
-            );
+            if (state.topPosts.isNotEmpty) {
+              return ListView.builder(
+                
+                  itemCount: state.topPosts.length,
+                  itemBuilder: (context, index) {
+                    return PostCard(state.topPosts[index]);
+                  });
+            } else
+              return Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    // height: 300,
+                    // child: DecoratedBox(
+                    //   decoration: BoxDecoration(
+                    //       border: Border.all(color: Colors.black)),
+                    // ),
+                  ),
+                ),
+              );
           });
         },
+      ),
+    );
+  }
+}
+
+class PostCard extends StatelessWidget {
+  Post _post;
+
+  PostCard(this._post, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: SizedBox(
+        height: 300,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Text(_post.title),
+            ],
+          ),
+        ),
       ),
     );
   }
