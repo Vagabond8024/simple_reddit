@@ -6,7 +6,7 @@ class TextBold extends StatelessWidget {
   final Color _textColor;
   final int maxLines;
 
-  const TextBold(this._text, this._textSize, this._textColor, 
+  const TextBold(this._text, this._textSize, this._textColor,
       {Key? key, this.maxLines = 100})
       : super(key: key);
 
@@ -14,6 +14,7 @@ class TextBold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _text,
+      textAlign: TextAlign.start,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
@@ -22,7 +23,7 @@ class TextBold extends StatelessWidget {
         fontFamily: 'Arial',
         fontWeight: FontWeight.bold,
       ),
-      );
+    );
   }
 }
 
@@ -32,7 +33,7 @@ class TextRegular extends StatelessWidget {
   final Color _textColor;
   final int maxLines;
 
-  const TextRegular(this._text, this._textSize, this._textColor, 
+  const TextRegular(this._text, this._textSize, this._textColor,
       {Key? key, this.maxLines = 100})
       : super(key: key);
 
@@ -40,6 +41,7 @@ class TextRegular extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       _text,
+      textAlign: TextAlign.start,
       maxLines: maxLines,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
@@ -48,6 +50,6 @@ class TextRegular extends StatelessWidget {
         fontFamily: 'Arial',
         //fontWeight: FontWeight.bold,
       ),
-      );
+    );
   }
 }

@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(),
       home: Scaffold(
-        backgroundColor: Colors.white,
         body: SafeArea(
           child: HomeScreen(),
         ),
