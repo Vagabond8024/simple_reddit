@@ -11,15 +11,15 @@ class HomeCubit extends Cubit<HomeState> {
 
   HomeCubit(this._getPostsUseCase) : super(HomeState([], true));
 
-  getPosts() async {
-    var postList = await _getPostsUseCase(_applyFilters());
+  getPosts(offset) async {
+    var postList = await _getPostsUseCase(_applyFilters(offset));
 
     emit(HomeState(postList.data?.right ?? [], false));
   }
 
-  Map<String, String> _applyFilters() {
+  Map<String, String> _applyFilters(int offset) {
     var filtersMap = {'limit': '5'};
-    filtersMap['count'] = '0';
+    filtersMap['count'] = offset.toString();
     return filtersMap;
   }
 }
