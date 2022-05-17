@@ -7,6 +7,7 @@ class PostJson {
   String id;
   String title;
   String subreddit;
+  @JsonKey(name: 'author')
   String author_fullname;
   dynamic created_utc;
   dynamic num_comments;
