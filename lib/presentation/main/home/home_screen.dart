@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_reddit/core/resources/colors.dart';
@@ -16,21 +18,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int offset = 0;
-
-  void setOffse() {
-    setState(() {
-      print(offset);
-      offset += 5;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => injector.get<HomeCubit>()
-        ..getPosts(
-            offset), //TODO Why we need to use underscore in params and ..
+        ..getPosts(), //TODO Why we need to use underscore in params and ..
       child: Builder(
         builder: (context) {
           return BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
@@ -40,8 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (context, index) {
                     if (index == state.topPosts.length) {
                       return ElevatedButton(
-                          onPressed: () => setOffse(),
+                          onPressed: () => context.read<HomeCubit>().getPosts(),
                           child: TextRegular('Load more', 20, RColors.Black));
+                          
                     }
                     return PostCard(state.topPosts[index]);
                   });

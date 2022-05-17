@@ -28,43 +28,47 @@ class PostCard extends StatelessWidget {
                         Icons.person_outline_rounded,
                       ),
                     ),
-                    Row(
-                      // crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                TextBold(
-                                    "r/${_post.subreddit}", 12, RColors.Black),
-                                TextRegular(
-                                    ' • Posted by u/${_post.author_fullname}',
-                                    12,
-                                    RColors.Grey),
-                              ],
-                            ),
-                            TextRegular(TimeUtils.timeAgo(_post.created_utc),
-                                12, RColors.Grey),
-                          ],
-                        ),
-                        // new Spacer(),
-                        // Spacer(flex: 2),
-                        // Flexible(child: Container()),
-                        ElevatedButton(
-                            onPressed: () {},
-                            child: TextBold('Join', 16, RColors.Wihte),
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all(RColors.Blue),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                ),
+                    Flexible(
+                      flex: 2,
+                      child: Row(
+                        // crossAxisAlignment: CrossAxisAlignment.stretch,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  TextBold("r/${_post.subreddit}", 12,
+                                      RColors.Black),
+                                  TextRegular(
+                                      ' • Posted by u/${_post.author_fullname}',
+                                      12,
+                                      RColors.Grey),
+                                ],
                               ),
-                            ))
-                      ],
+                              TextRegular(TimeUtils.timeAgo(_post.created_utc),
+                                  12, RColors.Grey),
+                            ],
+                          ),
+                          // new Spacer(),
+                          // Spacer(flex: 2),
+                          // Flexible(child: Container()),
+                          ElevatedButton(
+                              onPressed: () {},
+                              child: TextBold('Join', 16, RColors.Wihte),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(RColors.Blue),
+                                shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                  ),
+                                ),
+                              )),
+                        ],
+                      ),
                     ),
                   ],
                 ),
